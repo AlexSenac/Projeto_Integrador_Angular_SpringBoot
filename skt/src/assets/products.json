@@ -1,0 +1,16 @@
+[
+  {
+  "_id": "1",
+  "name": "Orange",
+  "amount": 20 ,
+  "purchasePrice": 1,
+  "percentage": 10,
+  "saleValue": 3,
+  "category": "Fruit",
+  "supplier": "Hortfruiti",
+  "corporateName": "Hortigil Hortifruti S.A.",
+  "cnpj": "31.487.473/0035-38",
+  "phone": "999532053"
+   
+  }
+]

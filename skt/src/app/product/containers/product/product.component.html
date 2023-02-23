@@ -1,0 +1,15 @@
+
+  <mat-card>    
+    <mat-toolbar class="header" color="primary">Product Details</mat-toolbar>  
+    <div class="column-flex mat-elevation-z8">
+      <app-product-list *ngIf="products$ | async as products; else loading" [products]="products" (add)="onAdd()"
+      (edit)="onEdit($event)" (remove)="onRemove($event)"></app-product-list>      
+         
+    <ng-template #loading>
+      <div class="loading-sppiner">
+        <mat-spinner></mat-spinner>
+      </div>
+    </ng-template>
+  </div>
+  </mat-card>
+

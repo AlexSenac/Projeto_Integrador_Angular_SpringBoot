@@ -1,0 +1,99 @@
+<mat-table [dataSource]="products">
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Product</mat-header-cell>
+    <mat-cell *matCellDef="let product">{{ product.name }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="amount">
+    <mat-header-cell *matHeaderCellDef>Amount</mat-header-cell>
+    <mat-cell *matCellDef="let product">{{ product.amount }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="purchasePrice">
+    <mat-header-cell *matHeaderCellDef>Purchase Price</mat-header-cell>
+    <mat-cell *matCellDef="let product">
+      {{ product.purchasePrice }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="percentage">
+    <mat-header-cell *matHeaderCellDef>Percentage</mat-header-cell>
+    <mat-cell *matCellDef="let product">{{ product.percentage }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="saleValue">
+    <mat-header-cell *matHeaderCellDef>Sale Value</mat-header-cell>
+    <mat-cell *matCellDef="let product">{{ product.saleValue }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="category">
+    <mat-header-cell *matHeaderCellDef>Category</mat-header-cell>
+    <mat-cell *matCellDef="let product"
+      >{{ product.category }}
+      <mat-icon aria-hidden="false" aria-label="Product Category">{{
+        product.category | category
+      }}</mat-icon>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="supplier">
+    <mat-header-cell *matHeaderCellDef>Supplier</mat-header-cell>
+    <mat-cell *matCellDef="let product">{{ product.supplier }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="corporateName">
+    <mat-header-cell *matHeaderCellDef>Corporate Name</mat-header-cell>
+    <mat-cell *matCellDef="let product">
+      {{ product.corporateName }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="cnpj">
+    <mat-header-cell *matHeaderCellDef>CNPJ</mat-header-cell>
+    <mat-cell *matCellDef="let product">{{ product.cnpj }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="phone">
+    <mat-header-cell *matHeaderCellDef>Phone</mat-header-cell>
+    <mat-cell *matCellDef="let product">{{ product.phone }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef class="action-column">
+      <button
+        type="submit"
+        (click)="onAdd()"
+        mat-mini-fab
+        color="accent"
+        aria-label="Add a Product"
+        class="action-column-header"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-header-cell>
+
+    <mat-cell *matCellDef="let product" class="action-column">
+      <button
+        (click)="onEdit(product)"
+        mat-icon-button
+        color="primary"
+        aria-label="edit product"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+
+      <button
+        type="submit"
+        (click)="onDelete(product)"
+        mat-icon-button
+        color="warn"
+        aria-label="Remove Product"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
